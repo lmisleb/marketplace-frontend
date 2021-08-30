@@ -1,0 +1,82 @@
+{
+   "rules": {
+      "categories": {
+         ".read": true,
+         "$custom": {
+            ".validate": "newData.child('name').isString() && newData.child('name').val().length < 100 && newData.child('name').val().matches(/^([0-9a-zñáéíóú ]+)$/i)",
+            "view": {
+               ".write": true
+            },
+            "name": {
+               ".write": "auth != null && auth.email == 'admin@marketplace.com'"
+            }
+         },
+         ".indexOn": [
+            "url"
+         ]
+      },
+      "sub-categories": {
+         ".read": true,
+         "$custom": {
+            "view": {
+               ".write": true
+            },
+            "name": {
+               ".write": "auth != null && auth.email == 'admin@marketplace.com'"
+            }
+         },
+         ".indexOn": [
+            "title_list",
+            "url",
+            "category"
+         ]
+      },
+      "products": {
+         ".read": true,
+         "$custom": {
+            "view": {
+               ".write": true
+            },
+            "name": {
+               ".write": "auth != null"
+            }
+         },
+         ".indexOn": [
+            "category",
+            "name",
+            "store",
+            "sub_category",
+            "tags",
+            "title_list",
+            "url"
+         ]
+      },
+      "users": {
+         ".read": true,
+         ".write": true
+      },
+      "stores": {
+         ".read": true,
+         ".write": "auth != null",
+         ".indexOn": [
+            "store"
+         ]
+      },
+      "orders": {
+         ".read": true,
+         ".write": "auth != null"
+      },
+      "disputes": {
+         ".read": true,
+         ".write": "auth != null"
+      },
+      "messages": {
+         ".read": true,
+         ".write": "auth != null"
+      },
+      "sales": {
+         ".read": true,
+         ".write": "auth != null"
+      }
+   }
+}
