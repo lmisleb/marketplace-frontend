@@ -16,7 +16,7 @@ declare var $:any;
 export class HomeShowcaseComponent implements OnInit {
 
    path:string = Path.url;
-   categories:Array<any> = [];
+   categories:any[] = [];
    preload:boolean = false;
    render:boolean = true;
 

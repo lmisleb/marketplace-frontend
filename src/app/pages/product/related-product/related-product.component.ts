@@ -12,10 +12,10 @@ import { ProductsService } from '../../../services/products.service';
 export class RelatedProductComponent implements OnInit {
 
    path:string = Path.url;
-   products:Array<any> = [];
-   rating:Array<any> = [];
-   reviews:Array<any> = [];
-   price:Array<any> = [];
+   products:any[] = [];
+   rating:any[] = [];
+   reviews:any[] = [];
+   price:any[] = [];
    render:boolean = true;
    cargando:boolean = false;
 

@@ -15,10 +15,10 @@ declare var $:any;
 export class ProductsShowcaseComponent implements OnInit {
 
    path:string = Path.url;
-   products:Array<any> = [];
-   raiting:Array<any> = [];
-   reviews:Array<any> = [];
-   price:Array<any> = [];
+   products:any[] = [];
+   raiting:any[] = [];
+   reviews:any[] = [];
+   price:any[] = [];
    render:boolean = true;
    preload:boolean = false;
    params:string = null;
@@ -27,8 +27,8 @@ export class ProductsShowcaseComponent implements OnInit {
    currentRoute:string = null;
    totalPage:number = 0;
    sort;
-   sortItems:Array<any> = [];
-   sortValues:Array<any> = [];
+   sortItems:any[] = [];
+   sortValues:any[] = [];
 
    constructor(private productsService: ProductsService, private activatedRoute: ActivatedRoute) { }
 

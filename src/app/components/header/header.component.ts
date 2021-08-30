@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit {
 
    path:string = Path.url;
    categories:object = null;
-   arrayTitleList:Array<any> = [];
+   arrayTitleList:any[] = [];
    render:boolean = true;
 
    constructor( private categoriesService: CategoriesService, private subcategoriesService: SubCategoriesService ) { } // invocamos el servicio

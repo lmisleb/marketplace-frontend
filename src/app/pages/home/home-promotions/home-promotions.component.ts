@@ -10,9 +10,9 @@ import { ProductsService } from '../../../services/products.service';
 export class HomePromotionsComponent implements OnInit {
 
    path:string = Path.url;
-   banner_default:Array<any> = [];
-   category:Array<any> = [];
-   url:Array<any> = [];
+   banner_default:any[] = [];
+   category:any[] = [];
+   url:any[] = [];
    preload:boolean = false;
 
    constructor(private productsService: ProductsService) { }

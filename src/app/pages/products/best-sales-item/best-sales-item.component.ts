@@ -12,11 +12,11 @@ import { ProductsService } from '../../../services/products.service';
 export class BestSalesItemComponent implements OnInit {
 
    path:string = Path.url;
-   bestSalesItem:Array<any> = [];
+   bestSalesItem:any[] = [];
    render:boolean = true;
-   raiting:Array<any> = [];
-   reviews:Array<any> = [];
-   price:Array<any> = [];
+   raiting:any[] = [];
+   reviews:any[] = [];
+   price:any[] = [];
    preload:boolean = false;
 
    constructor(private productsService: ProductsService, private activatedRoute: ActivatedRoute) { }

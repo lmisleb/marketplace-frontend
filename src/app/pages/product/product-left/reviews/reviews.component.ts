@@ -12,11 +12,11 @@ declare var $:any;
 
 export class ReviewsComponent implements OnInit {
 
-   @Input() childItem: any;
+   @Input() childItem:any;
    path:string = Path.url;
-   rating:Array<any> = [];
+   rating:any[] = [];
    totalReviews:string;
-   itemReviews:Array<any> = [];
+   itemReviews:any[] = [];
    render:boolean = true;
 
    constructor() { }

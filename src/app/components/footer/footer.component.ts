@@ -16,7 +16,7 @@ export class FooterComponent implements OnInit {
    path:string = Path.url;
    categories:object = null;
    render:boolean = true;
-   categoriesList:Array<any> = [];
+   categoriesList:any[] = [];
 
    constructor(private categoriesService: CategoriesService, private subcategoriesService: SubCategoriesService) { }
 

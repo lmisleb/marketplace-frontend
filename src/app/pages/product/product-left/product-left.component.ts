@@ -14,14 +14,14 @@ import { DatePipe } from '@angular/common'
 export class ProductLeftComponent implements OnInit {
 
    path:string = Path.url;
-   product:Array<any> = [];
-   rating:Array<any> = [];
-   reviews:Array<any> = [];
-   price:Array<any> = [];
+   product:any[] = [];
+   rating:any[] = [];
+   reviews:any[] = [];
+   price:any[] = [];
    cargando:boolean = false;
    render:boolean = true;
-   countd:Array<any> = [];
-   gallery:Array<any> = [];
+   countd:any[] = [];
+   gallery:any[] = [];
    renderGallery:boolean = true;
    video:string = null;
    tags:string = null;

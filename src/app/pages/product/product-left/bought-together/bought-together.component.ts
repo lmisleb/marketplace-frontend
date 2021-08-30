@@ -16,8 +16,8 @@ export class BoughtTogetherComponent implements OnInit {
    @Input() childItem: any; // para mostrar los datos de un componente padre a uno hijo con el nombre del atributo que se le asigne en el html
 
    path:string = Path.url;
-   products:Array<any> = [];
-   price:Array<any> = [];
+   products:any[] = [];
+   price:any[] = [];
    cargando:boolean = false;
    render:boolean = true;
 

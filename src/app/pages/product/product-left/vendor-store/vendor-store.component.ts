@@ -12,7 +12,7 @@ export class VendorStoreComponent implements OnInit {
 
    @Input() childItem:any;
    path:string = Path.url;
-   store:Array<any> = [];
+   store:any[] = [];
 
    constructor(private storesService: StoresService) { }
 
