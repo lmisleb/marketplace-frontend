@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule  } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 //Components
 import { HeaderMobileComponent } from './components/header-mobile/header-mobile.component';
@@ -84,7 +85,8 @@ import { RegisterComponent } from './pages/register/register.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

@@ -26,7 +26,12 @@ Login - Register Content
 
    <div class="container">
 
-      <form class="ps-form--account ps-tab-root" action="link.html" method="get">
+      <form 
+         (ngSubmit)="onSubmit(f)"
+         #f="ngForm" 
+         class="ps-form--account ps-tab-root"
+         autocomplete="off"
+         >
 
          <ul class="ps-tab-list">
 
@@ -54,32 +59,57 @@ Login - Register Content
 
                   <div class="form-group">
 
-                     <input class="form-control" type="text" placeholder="First name">
-
+                     <input 
+                        class="form-control" 
+                        type="text" 
+                        placeholder="First name"
+                        [(ngModel)]="user.first_name"
+                        name="first_name"
+                        >
                   </div>
 
                   <div class="form-group">
 
-                     <input class="form-control" type="text" placeholder="Last name">
-
+                     <input 
+                        class="form-control" 
+                        type="text" 
+                        placeholder="Last name"
+                        [(ngModel)]="user.last_name"
+                        name="last_name"
+                        >
                   </div>
 
                   <div class="form-group">
 
-                     <input class="form-control" type="text" placeholder="Username">
-
+                     <input 
+                        class="form-control" 
+                        type="text" 
+                        placeholder="Username"
+                        [(ngModel)]="user.username"
+                        name="username"
+                        >
                   </div>
 
                   <div class="form-group">
 
-                     <input class="form-control" type="email" placeholder="Email address">
-
+                     <input 
+                        class="form-control" 
+                        type="email" 
+                        placeholder="Email address"
+                        [(ngModel)]="user.email"
+                        name="email"
+                        >
                   </div>
 
                   <div class="form-group">
 
-                     <input class="form-control" type="text" placeholder="Password">
-
+                     <input 
+                        class="form-control" 
+                        type="text" 
+                        placeholder="Password"
+                        [(ngModel)]="user.password"
+                        name="password"
+                        >
                   </div>
 
                   <div class="form-group submtit">
