@@ -11,8 +11,8 @@ export let OwlCarouselConfig = {
 
       var target = $('.owl-slider');
       if (target.length > 0) {
-         target.each(function (this:any) {
-            var el:any = $(this),
+         target.each(function (this: any) {
+            var el: any = $(this),
                dataAuto = el.data('owl-auto'),
                dataLoop = el.data('owl-loop'),
                dataSpeed = el.data('owl-speed'),
@@ -93,12 +93,12 @@ export let CarouselNavigation = {
    fnc: function () {
       var prevBtn = $('.ps-carousel__prev'),
          nextBtn = $('.ps-carousel__next');
-      prevBtn.on('click', function (this:any, e: { preventDefault: () => void; }) {
+      prevBtn.on('click', function (this: any, e: { preventDefault: () => void; }) {
          e.preventDefault();
          var target = $(this).attr('href');
          $(target).trigger('prev.owl.carousel', [1000]);
       });
-      nextBtn.on('click', function (this:any, e: { preventDefault: () => void; }) {
+      nextBtn.on('click', function (this: any, e: { preventDefault: () => void; }) {
          e.preventDefault();
          var target = $(this).attr('href');
          $(target).trigger('next.owl.carousel', [1000]);
@@ -174,7 +174,7 @@ export let SlickConfig = {
                },
 
             ]
-            
+
          });
 
       }
@@ -244,7 +244,7 @@ export let BackgroundImage = {
    fnc: function () {
 
       var databackground = $('[data-background]');
-      databackground.each(function (this:any) {
+      databackground.each(function (this: any) {
          if ($(this).attr('data-background')) {
             var image_path = $(this).attr('data-background');
             $(this).css({
@@ -265,7 +265,7 @@ export let CountDown = {
 
    fnc: function () {
       var time = $(".ps-countdown");
-      time.each(function (this:any) {
+      time.each(function (this: any) {
          var el = $(this),
             value = $(this).data('time');
          var countDownDate = new Date(value).getTime();
@@ -306,7 +306,7 @@ Rating
 export let Rating = {
 
    fnc: function () {
-      $('select.ps-rating').each(function (this:any) {
+      $('select.ps-rating').each(function (this: any) {
          var readOnly;
          if ($(this).attr('data-read-only') == 'true') {
             readOnly = true
@@ -332,7 +332,7 @@ export let ProgressBar = {
 
    fnc: function () {
       var progress = $('.ps-progress');
-      progress.each(function (this:any, e:any) {
+      progress.each(function (this: any, e: any) {
          var value = $(this).data('value');
          $(this).find('span').css({
             width: value + "%"
@@ -348,7 +348,7 @@ DinamicRating
 
 export let DinamicRating = {
 
-   fnc: function (response:any) {
+   fnc: function (response: any) {
 
       /*===================================================
       Calcular el total de calificaciones de las reseñas
@@ -377,7 +377,7 @@ DinamicReviews
 
 export let DinamicReviews = {
 
-   fnc: function (response:any) {
+   fnc: function (response: any) {
 
       /*===========================================================
       Calificamos la cantidad de estrellas según la calificación
@@ -411,13 +411,13 @@ DinamicPrice
 
 export let DinamicPrice = {
 
-   fnc: function (response:any) {
+   fnc: function (response: any) {
 
-      let type:string;
-      let value:number;
-      let offer:number;
-      let price:string;
-      let disccount:string;
+      let type: string;
+      let value: number;
+      let offer: number;
+      let price: string;
+      let disccount: string;
       let arrayPrice = [];
       let offerDate;
       let today = new Date();
@@ -429,43 +429,43 @@ export let DinamicPrice = {
             parseInt(JSON.parse(response.offer)[2].split("-")[0]),
             parseInt(JSON.parse(response.offer)[2].split("-")[1]) - 1,
             parseInt(JSON.parse(response.offer)[2].split("-")[2])
-      
+
          )
 
-         if(today < offerDate){
+         if (today < offerDate) {
 
             type = JSON.parse(response.offer)[0];  //Disccount o Fixed
             value = JSON.parse(response.offer)[1]; //valor
-   
+
             if (type == "Disccount") {
-   
+
                // Disccount
                offer = Number((response.price - (response.price * (value / 100))).toFixed(2));
-   
+
             } else {
-   
+
                // Fixed
                offer = value;
                //value = Math.round((offer * 100) / response.price);
                value = Math.round(((response.price - offer) * 100) / response.price);
-   
+
             }
-   
+
             //si hay ofertas
             if (value == 0) {
                disccount = ``;
             } else {
                disccount = `<div class="ps-product__badge">-${value}%</div>`;
             }
-   
+
             if (offer == response.price) {
                price = `<p class="ps-product__price sale">$${offer}</p>`;
             } else {
                price = `<p class="ps-product__price sale">$<span class="end-price">${offer}</span> <del>$${response.price} </del></p>`;
             }
-   
 
-         }else{
+
+         } else {
 
             //si no hay ofertas
             price = `<p class="ps-product__price"><span class="end-price">${response.price}</span> `;
@@ -561,7 +561,7 @@ Search validado para evitar inyecciones en el código
 
 export let Search = {
 
-   fnc: function (response:any) {
+   fnc: function (response: any) {
 
       var search = response.toLowerCase();
       var match = /^[a-z0-9ñÑáéíóú ]*$/;
@@ -595,7 +595,7 @@ Tabs
 export let Tabs = {
 
    fnc: function () {
-      $('.ps-tab-list  li > a ').on('click', function (this:any, e: { preventDefault: () => void; }) {
+      $('.ps-tab-list  li > a ').on('click', function (this: any, e: { preventDefault: () => void; }) {
          e.preventDefault();
          var target = $(this).attr('href');
          $(this).closest('li').siblings('li').removeClass('active');
@@ -603,7 +603,7 @@ export let Tabs = {
          $(target).addClass('active');
          $(target).siblings('.ps-tab').removeClass('active');
       });
-      $('.ps-tab-list.owl-slider .owl-item a').on('click', function (this:any, e: { preventDefault: () => void; }) {
+      $('.ps-tab-list.owl-slider .owl-item a').on('click', function (this: any, e: { preventDefault: () => void; }) {
          e.preventDefault();
          var target = $(this).attr('href');
          $(this).closest('.owl-item').siblings('.owl-item').removeClass('active');
@@ -675,12 +675,130 @@ export let Quantity = {
 }
 
 /*=============================================
-disponible
+Capitalize
 =============================================*/
 
-export let disponible = {
+export let Capitalize = {
+
+   fnc: function (value:string) {
+
+      value = value.toLowerCase();
+
+      let names = value.split(' ');
+
+      names = names.map(name => {
+
+         return name[0].toUpperCase() + name.substr(1)
+
+      })
+
+      return names.join(' ');
+
+   }
+
+}
+
+/*=============================================
+Sweetalert
+=============================================*/
+
+// export let Sweetalert = {
+
+//    fnc: function (type, text, url) {
+
+//       switch (type) {
+
+//          case "error":
+
+//             if (url == null) {
+
+//                Swal.fire({
+//                   icon: 'error',
+//                   title: 'Error',
+//                   text: text
+//                })
+
+//             } else {
+
+//                Swal.fire({
+//                   icon: 'error',
+//                   title: 'Error',
+//                   text: text
+//                }).then((result) => {
+
+//                   if (result.value) {
+
+//                      window.open(url, "_top")
+//                   }
+
+//                })
+
+//             }
+
+//             break;
+
+//          case "success":
+
+//             if (url == null) {
+
+//                Swal.fire({
+//                   icon: 'success',
+//                   title: 'Success',
+//                   text: text
+//                })
+
+//             } else {
+
+//                Swal.fire({
+//                   icon: 'success',
+//                   title: 'Success',
+//                   text: text
+//                }).then((result) => {
+
+//                   if (result.value) {
+
+//                      window.open(url, "_top")
+//                   }
+
+//                })
+
+//             }
+
+//             break;
+
+//          case "loading":
+
+//             Swal.fire({
+//                allowOutsideClick: false,
+//                type: 'info',
+//                text: text
+//             })
+//             Swal.showLoading()
+
+//             break;
+
+//          case "close":
+
+//             Swal.close()
+
+//             break;
+
+//       }
+
+
+//    }
+
+// }
+
+/*=============================================
+Tooltip
+=============================================*/
+
+export let Tooltip = {
 
    fnc: function () {
+
+      $('[data-toggle="tooltip"]').tooltip();
 
    }
 

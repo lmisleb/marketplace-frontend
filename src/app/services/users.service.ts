@@ -35,6 +35,26 @@ export class UsersService {
 
 	}
 
+   /*=============================================
+	Registro en Firebase Database
+	===============================================*/
 
+   registerDatabase(user: UsersModel){
+
+      delete user.password; //para que no se muestren estas propiedades las quitamos
+      delete user.returnSecureToken;
+      return this.http.post(`${this.api}/users.json`, user);
+
+   }
+
+   /*===========================================
+  	Filtrar data para buscar coincidencias
+  	=============================================*/
+
+  	getFilterData(orderBy:string, equalTo:string){
+
+      return this.http.get(`${this.api}users.json?orderBy="${orderBy}"&equalTo="${equalTo}"&print=pretty`);
+
+   }
 
 }
