@@ -1,3 +1,5 @@
+import Swal from "sweetalert2";
+
 declare var jQuery: any;
 declare var $: any;
 
@@ -702,93 +704,95 @@ export let Capitalize = {
 Sweetalert
 =============================================*/
 
-// export let Sweetalert = {
+export let Sweetalert = {
 
-//    fnc: function (type, text, url) {
+   fnc: function (type:string, text:string, url:string) {
 
-//       switch (type) {
+      switch (type) {
 
-//          case "error":
+         case "error":
 
-//             if (url == null) {
+            if (url == null) {
 
-//                Swal.fire({
-//                   icon: 'error',
-//                   title: 'Error',
-//                   text: text
-//                })
+               Swal.fire({
+                  icon: 'error',
+                  title: 'Error',
+                  text: text
+               })
 
-//             } else {
+            } else {
 
-//                Swal.fire({
-//                   icon: 'error',
-//                   title: 'Error',
-//                   text: text
-//                }).then((result) => {
+               Swal.fire({
+                  icon: 'error',
+                  title: 'Error',
+                  text: text
+               }).then((result) => {
 
-//                   if (result.value) {
+                  if (result.value) {
 
-//                      window.open(url, "_top")
-//                   }
+                     window.open(url, "_top")
 
-//                })
+                  }
 
-//             }
+               })
 
-//             break;
+            }
 
-//          case "success":
+            break;
 
-//             if (url == null) {
+         case "success":
 
-//                Swal.fire({
-//                   icon: 'success',
-//                   title: 'Success',
-//                   text: text
-//                })
+            if (url == null) {
 
-//             } else {
+               Swal.fire({
+                  icon: 'success',
+                  title: 'Success',
+                  text: text
+               })
 
-//                Swal.fire({
-//                   icon: 'success',
-//                   title: 'Success',
-//                   text: text
-//                }).then((result) => {
+            } else {
 
-//                   if (result.value) {
+               Swal.fire({
+                  icon: 'success',
+                  title: 'Success',
+                  text: text
+               }).then((result) => {
 
-//                      window.open(url, "_top")
-//                   }
+                  if (result.value) {
 
-//                })
+                     window.open(url, "_top")
 
-//             }
+                  }
 
-//             break;
+               })
 
-//          case "loading":
+            }
 
-//             Swal.fire({
-//                allowOutsideClick: false,
-//                type: 'info',
-//                text: text
-//             })
-//             Swal.showLoading()
+            break;
 
-//             break;
+         case "loading":
 
-//          case "close":
+            // Swal.fire({ 
+            //    allowOutsideClick: false,
+            //    type: 'info',
+            //    text: text
+            // })
 
-//             Swal.close()
+            Swal.showLoading()
 
-//             break;
+            break;
 
-//       }
+         case "close":
 
+            Swal.close()
 
-//    }
+            break;
 
-// }
+      }
+
+   }
+
+}
 
 /*=============================================
 Tooltip

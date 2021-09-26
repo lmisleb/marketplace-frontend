@@ -2,12 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import * as firebase from "firebase/app";
 import "firebase/auth";
-//import { Capitalize, Sweetalert } from '../../funtions';
-
-import { Capitalize } from '../../funtions';
+import { Capitalize, Sweetalert } from '../../funtions';
 import { UsersModel } from '../../models/users.model';
 import { UsersService } from '../../services/users.service';
-
+//import Swal from "sweetalert2";
 
 declare var jQuery: any;
 declare var $: any;
@@ -90,9 +88,8 @@ export class RegisterComponent implements OnInit {
                $(input).parent().addClass('was-validated')
       
                   input.value = "";
-      
-                  //Sweetalert.fnc("error", "Username already exists", null)
-   
+                  Sweetalert.fnc("error", "Username already exists", null)
+
                return;
             
             }
