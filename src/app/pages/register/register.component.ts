@@ -5,7 +5,6 @@ import "firebase/auth";
 import { Capitalize, Sweetalert } from '../../funtions';
 import { UsersModel } from '../../models/users.model';
 import { UsersService } from '../../services/users.service';
-//import Swal from "sweetalert2";
 
 declare var jQuery: any;
 declare var $: any;
@@ -28,9 +27,9 @@ export class RegisterComponent implements OnInit {
 
    ngOnInit(): void {
 
-      /*===========================================
+      /*==================================
       Validar formulario de Bootstrap 4
-      =============================================*/
+      ====================================*/
 
       // Disable form submissions if there are invalid fields
       (function () {
@@ -53,9 +52,9 @@ export class RegisterComponent implements OnInit {
 
    }
 
-   /*==================================================
+   /*===================================================
    Capitalizar la primera letra del nombre y apellido
-   ====================================================*/
+   =====================================================*/
 
    capitalize(input:any){
 
@@ -80,15 +79,13 @@ export class RegisterComponent implements OnInit {
          this.usersService.getFilterData("username", input.value)
          .subscribe(resp=>{
 
-            //console.log("resp", resp);
-            //return;
-           
             if(Object.keys(resp).length > 0){
    
                $(input).parent().addClass('was-validated')
       
-                  input.value = "";
-                  Sweetalert.fnc("error", "Username already exists", null)
+               input.value = "";
+
+               Sweetalert.fnc("error", "Username already exists", null)
 
                return;
             
@@ -120,6 +117,18 @@ export class RegisterComponent implements OnInit {
 
    onSubmit(f: NgForm) {
 
+      if (f.invalid) {
+
+         return;
+
+      }
+
+      /*=============================================
+      Alerta suave mientras se registra el usuario
+      =============================================*/
+
+      Sweetalert.fnc("loading", "Loading...", null)
+
       /*===========================================
       Registro en Firebase Authentication
       =============================================*/
@@ -129,36 +138,53 @@ export class RegisterComponent implements OnInit {
 
       this.usersService.registerAuth(this.user)
       .subscribe(resp => {
-         //console.log("resp", resp);
 
          if (resp["email"] == this.user.email) {
 
-            this.user.displayName = `${this.user.first_name} ${this.user.last_name}`;
-            this.user.method = "direct";
-            this.user.idToken = resp["idToken"];
-            this.user.needConfirm = false;
-
             /*=============================================
-            Registro en Firebase Database
+            Enviar correo de verificación
             =============================================*/
 
-            this.usersService.registerDatabase(this.user)
-               .subscribe(resp1 => {
+            let body = {
 
-                  console.log("resp1", resp1);
+               requestType: "VERIFY_EMAIL",
+               idToken: resp["idToken"]
+       
+            }
 
-               })
+            this.usersService.sendEmailVerificationFnc(body)
+            .subscribe(resp=>{
+
+               if (resp["email"] == this.user.email) {
+
+                  /*=============================================
+                  Registro en Firebase Database
+                  =============================================*/
+   
+                  this.user.displayName = `${this.user.first_name} ${this.user.last_name}`;
+                  this.user.method = "direct";
+                  this.user.idToken = resp["idToken"];
+                  this.user.needConfirm = false;
+   
+                  this.usersService.registerDatabase(this.user)
+                  .subscribe(resp => {
+   
+                     Sweetalert.fnc("success", "Confirm your account in your email (check spam)", "login")
+   
+                  })
+
+               }
+
+            })            
 
          }
 
+      }, err =>{
+
+         Sweetalert.fnc("error", err.error.error.message, null)
+   
       })
-
-      if (f.invalid) {
-
-         return;
-
-      }
-
+      
    }
 
 }

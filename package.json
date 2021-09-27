@@ -31,7 +31,7 @@
     "notie": "^4.3.1",
     "rxjs": "~6.6.0",
     "summernote": "^0.8.18",
-    "sweetalert2": "^11.1.5",
+    "sweetalert": "^2.1.2",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"
   },

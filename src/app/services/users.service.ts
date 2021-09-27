@@ -57,4 +57,25 @@ export class UsersService {
 
    }
 
+   /*=============================================
+	Login en Firebase Authentication
+	===============================================*/
+	
+	loginAuth(user: UsersModel){
+
+		return this.http.post(`${this.login}`, user);
+
+	}
+
+   /*=============================================
+	Enviar verificación de correo electrónico
+	===============================================*/
+
+   sendEmailVerificationFnc(body:object){
+
+      return this.http.post(`${this.sendEmailVerification}`, body);
+
+   }
+
+
 }

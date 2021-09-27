@@ -34,7 +34,7 @@ Exportamos el endPoint para el ingreso de usuarios en Firebase Authentication
 
 export let Login = {
 
-	url: 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=[YOUR-API-KEY]'
+	url: 'https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyBS4i_hK-Cu55EVxXvRjrNeM5ot1c70Pms'
 
 }
 
@@ -44,7 +44,7 @@ Exportamos el endPoint para enviar verificación de correo electrónico
 
 export let SendEmailVerification = {
 
-	url: 'https://identitytoolkit.googleapis.com/v1/accounts:sendOobCode?key=[YOUR-API-KEY]'
+	url: 'https://identitytoolkit.googleapis.com/v1/accounts:sendOobCode?key=AIzaSyBS4i_hK-Cu55EVxXvRjrNeM5ot1c70Pms'
 
 }
 
@@ -54,7 +54,7 @@ Exportamos el endPoint para confirmar email de verificación
 
 export let ConfirmEmailVerification = {
 
-	url: 'https://identitytoolkit.googleapis.com/v1/accounts:update?key=[YOUR-API-KEY]'
+	url: 'https://identitytoolkit.googleapis.com/v1/accounts:update?key=AIzaSyBS4i_hK-Cu55EVxXvRjrNeM5ot1c70Pms'
 
 }
 

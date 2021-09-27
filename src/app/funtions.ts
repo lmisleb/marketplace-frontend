@@ -1,4 +1,5 @@
-import Swal from "sweetalert2";
+//import Swal from "sweetalert2";
+import Swal from "sweetalert";
 
 declare var jQuery: any;
 declare var $: any;
@@ -714,7 +715,7 @@ export let Sweetalert = {
 
             if (url == null) {
 
-               Swal.fire({
+               Swal({
                   icon: 'error',
                   title: 'Error',
                   text: text
@@ -722,14 +723,14 @@ export let Sweetalert = {
 
             } else {
 
-               Swal.fire({
+               Swal({
                   icon: 'error',
                   title: 'Error',
                   text: text
                }).then((result) => {
 
-                  if (result.value) {
-
+                  if (result == true) {
+                     
                      window.open(url, "_top")
 
                   }
@@ -744,7 +745,7 @@ export let Sweetalert = {
 
             if (url == null) {
 
-               Swal.fire({
+               Swal({
                   icon: 'success',
                   title: 'Success',
                   text: text
@@ -752,13 +753,13 @@ export let Sweetalert = {
 
             } else {
 
-               Swal.fire({
+               Swal({
                   icon: 'success',
                   title: 'Success',
                   text: text
                }).then((result) => {
 
-                  if (result.value) {
+                  if (result == true) {
 
                      window.open(url, "_top")
 
@@ -772,13 +773,12 @@ export let Sweetalert = {
 
          case "loading":
 
-            // Swal.fire({ 
-            //    allowOutsideClick: false,
-            //    type: 'info',
-            //    text: text
-            // })
+            Swal({
+               icon: 'info',
+               text: text
+            })
 
-            Swal.showLoading()
+            Swal.stopLoading()
 
             break;
 
@@ -793,6 +793,100 @@ export let Sweetalert = {
    }
 
 }
+
+/*=============================================
+Sweetalert 2
+=============================================*/
+
+// export let Sweetalert = {
+
+//    fnc: function (type:string, text:string, url:string) {
+
+//       switch (type) {
+
+//          case "error":
+
+//             if (url == null) {
+
+//                Swal.fire({
+//                   icon: 'error',
+//                   title: 'Error',
+//                   text: text
+//                })
+
+//             } else {
+
+//                Swal.fire({
+//                   icon: 'error',
+//                   title: 'Error',
+//                   text: text
+//                }).then((result) => {
+
+//                   if (result.value) {
+
+//                      window.open(url, "_top")
+
+//                   }
+
+//                })
+
+//             }
+
+//             break;
+
+//          case "success":
+
+//             if (url == null) {
+
+//                Swal.fire({
+//                   icon: 'success',
+//                   title: 'Success',
+//                   text: text
+//                })
+
+//             } else {
+
+//                Swal.fire({
+//                   icon: 'success',
+//                   title: 'Success',
+//                   text: text
+//                }).then((result) => {
+
+//                   if (result.value) {
+
+//                      window.open(url, "_top")
+
+//                   }
+
+//                })
+
+//             }
+
+//             break;
+
+//          case "loading":
+
+//             // Swal.fire({ 
+//             //    allowOutsideClick: false,
+//             //    type: 'info',
+//             //    text: text
+//             // })
+
+//             Swal.showLoading()
+
+//             break;
+
+//          case "close":
+
+//             Swal.close()
+
+//             break;
+
+//       }
+
+//    }
+
+// }
 
 /*=============================================
 Tooltip
